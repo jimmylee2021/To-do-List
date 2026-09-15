@@ -217,7 +217,7 @@ body {
   color: hsl(220, 98%, 61%);
 }
 
-@media only screen  and (min-width: 365px) {
+@media only screen  and (min-width: 360px) {
   .theme-btn{
     right: 50px;
   }
@@ -230,5 +230,18 @@ body {
 }
 .header-inner-bx h1 {
   margin-left: 20px;
+}
+}
+
+@media only screen  and (min-width: 280px) {
+ .theme-btn{
+  right: 50px;
+  top: 90px;
+ }
+  .header-inner-bx h1 {
+  margin-left: 20px;
+}
+.header-bg {
+  height: 30dvh;
 }
 }
