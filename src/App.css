@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  --bg-color: hsl(233, 11%, 84%);
+  --text-color: hsl(235, 19%, 35%);
+  --card-bg: hsl(0, 0%, 98%);
+  --border-color: hsl(234, 39%, 85%);
+  --transition-speed: 0.3s;
+}
+
+.dark-mode {
+  --bg-color: hsl(235, 21%, 11%);
+  --text-color: hsl(234, 39%, 85%);
+  --card-bg: hsl(235, 24%, 19%);
+  --border-color: hsl(237, 14%, 26%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul li {
+  list-style: none;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+  font-family: "Josefin Sans", sans-serif;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: url("./assets/bg-desktop-light.jpg") no-repeat center top / cover;
+  z-index: -1;
+}
+
+.dark-mode .header-bg {
+  background-image: url("./assets/bg-desktop-dark.jpg");
+}
+
+.todo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
+}
+
+.todo-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+.header-inner-bx h1{
+   letter-spacing: 10px;
+   color: #ffff;
+}
+
+.todo-main-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.child-div {
+  margin-top: 20dvh;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+}
+
+.input-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  transition: background-color var(--transition-speed) ease;
+}
+
+.input-div input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-family: inherit;
+}
+
+.todo-list {
+  background: var(--card-bg);
+  border-radius: 8px;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+  width: 100%;
+  border-bottom: 0.5px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.todo-item-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-input {
+  min-width: 0;
+  flex: 1;
+  padding: 4px 0;
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  font: inherit;
+}
+
+.delete-button {
+  border: none;
+  background: transparent;
+  color: hsl(234, 12%, 45%);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.todo-item:hover .delete-button,
+.todo-item:focus-within .delete-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.delete-button:hover {
+  color: hsl(0, 70%, 55%);
+}
+.todo-item:last-child {
+   border-bottom: none;
+}
+.theme-btn {
+  z-index: 2;
+
+  position: absolute;
+  top: 75px;   /* Adjust this value for spacing from the top edge */
+  right: 380px;  /* Adjust this value for spacing from the right edge */
+   background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+.todo-item-child input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.todo-item-child input[type="checkbox"]:checked {
+  background-color: hsl(280, 87%, 65%);
+  border-color: hsl(280, 87%, 65%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3 8 3 3 7-7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+.bottom-div{
+  background: var(--card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 2px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.filter-button,
+.bottom-div h2 {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 15px;
+  font-family: "Josefin Sans";
+  padding: 10px;
+}
+
+.filter-button.active {
+  color: hsl(220, 98%, 61%);
+}
+
+@media only screen  and (min-width: 365px) {
+  .theme-btn{
+    right: 50px;
+  }
+  .header-bg {
+    background: url('../src/assets/bg-mobile-light.jpg') no-repeat;
+    background-size: cover;
+  }
+  .dark-mode .header-bg {
+  background-image: url("./assets/bg-mobile-dark.jpg") no-repeat;
+}
+.header-inner-bx h1 {
+  margin-left: 20px;
+}
+}
